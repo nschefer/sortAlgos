@@ -1,4 +1,7 @@
 describe('Bubble Sort', function() {
+  beforeEach(function() {
+    spyOn(helper, 'swap').and.callThrough();
+  });
   it('handles an empty array', function() {
     expect(bubbleSort([])).toEqual([]);
   });
@@ -11,5 +14,9 @@ describe('Bubble Sort', function() {
   });
   it('handles duplicates', function() {
     expect(bubbleSort([2, 2, 3, 3, 1])).toEqual([1, 2, 2, 3, 3]);
+  });
+  it('calls swap the correct number of times', function() {
+    bubbleSort([1, 2, 4, 3]);
+    expect(helper.swap.calls.count()).toEqual(1);
   });
 });
