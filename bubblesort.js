@@ -21,9 +21,15 @@ const bubbleSort = array => {
   return array;
 };
 
-const bubbleRecursive = array => {
-  // base case
-  if (swaps === 0) return array;
+const bubbleRecursive = (array, n = array.length - 1) => {
+  if (n === 0) {
+    return array;
+  }
+  for (let i = 0; i <= n; i++) {
+    if (array[i] > array[i + 1]) {
+      helper.swap(i, i + 1, array);
+    }
+  }
 
-  let swaps = 1;
+  bubbleRecursive(array, n - 1);
 };
