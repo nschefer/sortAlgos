@@ -1,9 +1,9 @@
-const helper = {};
-helper.swap = (arg1, arg2, array) => {
+// const helper = {};
+function swap(arg1, arg2, array) {
   const holder = array[arg1];
   array[arg1] = array[arg2];
   array[arg2] = holder;
-};
+}
 
 const bubbleSort = array => {
   let totalSwitches = 1;
@@ -12,8 +12,7 @@ const bubbleSort = array => {
     totalSwitches = 0;
     for (let i = 0; i < array.length - 1; i++) {
       if (array[i] > array[i + 1]) {
-        helper.swap(i, i + 1, array);
-        console.log(totalSwitches);
+        swap(i, i + 1, array);
         totalSwitches++;
       }
     }
@@ -27,7 +26,7 @@ const bubbleRecursive = (array, n = array.length - 1) => {
   }
   for (let i = 0; i <= n; i++) {
     if (array[i] > array[i + 1]) {
-      helper.swap(i, i + 1, array);
+      swap(i, i + 1, array);
     }
   }
 
